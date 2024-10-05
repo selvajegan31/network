@@ -1,6 +1,0 @@
----
-  - name: Build Basic Config Using Roles
-    hosts: juniper
-    connection: local
-    roles:
-      - juniper_config

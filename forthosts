@@ -1,9 +1,0 @@
-[fort_device]
-192.168.138.13
-
-[fort_device:vars]
-ansible_user: admin
-ansible_password: fortigate
-ansible_network_os: fortinet.fortios.fortios
-#ansible_connection: ssh
-ansible_python_interpreter: /usr/bin/python3

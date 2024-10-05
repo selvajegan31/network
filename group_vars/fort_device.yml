@@ -1,5 +1,0 @@
----
-ansible_user: admin
-ansible_password: fortigate
-ansible_network_os: fortinet.fortios.fortios
-ansible_connection: netconf

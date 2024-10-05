@@ -1,8 +1,0 @@
----
-ansible_host: 192.168.138.11
-ansible_user: root
-ansible_password: Juniper
-ansible_network_os: junos
-ansible_connection: netconf
-hostname: hello123
-
