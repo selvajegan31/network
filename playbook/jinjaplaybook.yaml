@@ -1,0 +1,19 @@
+---
+- name: Change hostname on Juniper device
+  hosts: juniper_devices 
+  gather_facts: no
+  connection: local
+  vars:
+    new_hostname: "helo123"  # Define the new hostname
+  tasks:
+    - name: Apply new hostname configuration
+      ansible.builtin.template:
+        src: hostname.j2
+        dest: /var/tmp/hostname.conf  # Save the configuration on the device
+      delegate_to: localhost
+
+    - name: Load and commit configuration on Juniper device
+      junos_config:
+        src: /var/tmp/hostname.conf  # Use the file saved on the device
+        load: merge
+        commit: yes

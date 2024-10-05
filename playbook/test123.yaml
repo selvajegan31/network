@@ -1,0 +1,19 @@
+---
+-
+  hosts: juniper_device
+  connection: netconf
+  gather_facts: no
+
+
+
+
+  tasks:
+    - name: test
+      junipernetworks.junos.junos_command:
+        commands: 
+           - show version
+      register: output
+
+    - name: debug
+      debug:
+        var: output

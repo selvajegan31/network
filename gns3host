@@ -1,0 +1,148 @@
+# This is the default ansible 'hosts' file.
+#
+# It should live in /etc/ansible/hosts
+#
+#   - Comments begin with the '#' character
+#   - Blank lines are ignored
+#   - Groups of hosts are delimited by [header] elements
+#   - You can enter hostnames or ip addresses
+#   - A hostname/ip can be a member of multiple groups
+
+# Ex 1: Ungrouped hosts, specify before any group headers.
+
+
+#green.example.com
+#blue.example.com
+#192.168.100.1
+#192.168.100.10
+
+# Ex 2: A collection of hosts belonging to the 'webservers' group
+
+
+
+[webservers]
+#192.168.138.10
+#selvajegan-virtual-machine
+#alpha.example.org
+#beta.example.org
+#192.168.1.100
+#192.168.1.110
+#10.64.2.1
+#10.64.3.1
+#10.64.4.1
+#10.64.5.1
+#10.64.6.1
+#10.64.7.1
+#10.64.8.1
+#10.64.9.1
+#10.64.10.1
+#10.64.12.1
+#10.64.13.1
+#10.64.14.1
+#10.64.15.1
+#10.64.16.1
+#10.64.17.1
+
+[switches]
+#10.2.250.11
+#10.3.250.11
+#10.4.250.11
+#10.5.250.11
+#10.6.250.11
+#10.7.250.11
+#10.8.250.11
+#10.9.250.11
+#10.10.250.11
+#10.12.250.11
+#10.13.250.11
+#10.14.250.11
+#10.15.250.11
+#10.16.250.11
+#10.17.250.11
+
+[network]
+#192.168.138.10
+
+[network:vars]
+ansible_user=cisco
+ansible_password=cisco
+ansible_user=root
+ansible_password=Juniper
+#ansible_python_interpreter=/usr/bin/python3
+#ansible_connection=local
+ansible_network_os=junipernetworks.junos.junos
+#ansible_connection=ansible.netcommon.netconf
+ansible_port=22ansible_python_interpreter=/usr/bin/python3
+ansible_network_os=ios
+ansible_port=22
+ansible_become_password=true
+ansible_become=yes
+ansible_become_method=enable  # Specify privilege escalation method
+ansible_become_user=cisco
+ansible_become_pass=cisco
+ansible_become_method=true
+
+[routers]
+192.168.138.11
+#192.168.84.132
+#192.168.84.133
+
+#ansible_user=fortanix 
+#ansible_password=DSMFort!
+#ansible_python_interpreter=/usr/bin/python3
+#ansible_connection=local 
+#ansible_user=ubuntu 
+#ansible_connection=ssh
+#ansible_private_key_file=~/.ssh/key.pem
+#ansible_user=fortanix
+#ansible_password=DSMFort!
+#ansible_connection=ansible.netcommon.netconf
+#ansible_network_os=junipernetworks.junos.junos
+#ansible_port=22
+# If you have multiple hosts following a pattern you can specify
+# them like this:
+[webservers:vars]
+#ansible_user=fortanix 
+#ansible_password=DSMFort!
+#ansible_python_interpreter=/usr/bin/python3
+#ansible_connection=local 
+#ansible_user=ubuntu 
+#ansible_connection=ssh
+#ansible_private_key_file=~/.ssh/key.pem
+#ansible_user=fortanix
+#ansible_password=DSMFort!
+#ansible_connection=ansible.netcommon.netconf
+ansible_network_os=junipernetworks.junos.junos
+ansible_port=22
+
+[switches:vars]
+ansible_user=fortanix
+ansible_password=SaaSFort!
+ansible_python_interpreter=/usr/bin/python3
+ansible_network_os=junipernetworks.junos.junos
+ansible_port=22
+
+[routers:vars]
+ansible_user=root
+ansible_password=Juniper
+ansible_python_interpreter=/usr/bin/python3
+ansible_connection=local
+ansible_network_os=junipernetworks.junos.junos
+#ansible_connection=ansible.netcommon.netconf
+ansible_port=22
+
+#www[001:006].example.com
+
+# Ex 3: A collection of database servers in the 'dbservers' group
+
+#[dbservers]
+#
+#db01.intranet.mydomain.net
+#db02.intranet.mydomain.net
+#10.25.1.56
+#10.25.1.57
+
+# Here's another example of host ranges, this time there are no
+# leading 0s:
+
+#db-[99:101]-node.example.com

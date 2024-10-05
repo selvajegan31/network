@@ -1,0 +1,22 @@
+---
+ansible_host: 192.168.138.11
+ansible_user: root
+ansible_password: Juniper
+ansible_network_os: junipernetworks.junos.junos
+ansible_connection: ansible.netcommon.netconf
+ansible_port: 22
+
+# Specific variables for the Juniper device
+interfaces:
+  - junos_if: "fxp0"
+    unit: 0
+    desc: "Management"
+  - junos_if: "em3"
+    unit: 0
+    desc: "VLAN Bridge"
+  - junos_if: "em4"
+    unit: 0
+    desc: "To netsvr"
+  - junos_if: "em5"
+    unit: 202
+    desc: "To junos-02"

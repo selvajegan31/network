@@ -1,0 +1,23 @@
+---
+# vars file for juniper_config
+interfaces:
+  - intf: em1
+    addr: 192.168.100.10/24
+  - intf: em2
+    addr: 172.11.111.1/24
+  - intf: em3
+    addr: 192.16.31.10/24
+  - intf: em4
+    addr: 192.18.41.10/24
+bgpconf:
+  - grpname: grp123
+    as_num:  1
+    as_num1: 2
+    local_addr: 10.0.0.1
+    peer_addr: 10.0.0.2 
+  - grpname: grp12345
+    as_num:  1
+    as_num1: 3
+    local_addr: 10.0.0.1
+    peer_addr: 10.0.0.3
+hostname: hellllo

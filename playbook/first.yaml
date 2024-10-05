@@ -1,0 +1,25 @@
+--- 
+- 
+  hosts: juniper_device
+  connection: netconf
+  gather_facts: no
+  name: "Get device information"
+
+  roles:
+    - Juniper.junos
+
+  tasks: 
+    - name: set com
+      junos_command: 
+        commands: 
+          - show configuration 
+      register: junos_result
+
+
+
+    - name: print
+      debug:
+        var: junos_result
+      name: "Print response"
+
+

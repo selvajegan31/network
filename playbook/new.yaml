@@ -1,0 +1,9 @@
+---
+
+- name: Gather facts from Junos device
+  hosts: all
+  gather_facts: false
+  
+  tasks:
+    - 
+      juniper.junos.junos_facts:

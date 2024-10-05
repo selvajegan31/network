@@ -1,0 +1,11 @@
+---
+
+ansible_user: root
+ansible_password: Juniper
+ansible_network_os: junos
+ansible_connection: netconf
+
+
+
+
+

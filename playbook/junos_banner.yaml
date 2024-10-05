@@ -1,0 +1,14 @@
+---
+-
+  hosts: all
+  gather_facts: no
+  connection: netconf
+
+
+  tasks:
+    - name: test bannet
+      junos_banner:
+        banner: login
+        text: |
+          you are unautorized to enter
+        state: present

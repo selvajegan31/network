@@ -1,0 +1,6 @@
+{% for interfaces in interfacess %}
+interface {{interfaces.name}}
+ description {{interfaces.desc}}
+ ip address {{interfaces.addr}} 255.255.255.0
+ no shut
+{% endfor %}  

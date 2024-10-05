@@ -1,0 +1,17 @@
+---
+-
+  hosts: juniper
+  connection: netconf
+
+  tasks:
+    - name: play1
+      junos_config:
+        commands:
+           - set system host-name "selva"
+      register: output
+
+    - name: debug1
+      debug:
+        var: output
+       
+

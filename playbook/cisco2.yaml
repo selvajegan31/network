@@ -1,0 +1,12 @@
+---
+-
+  hosts: cisco_device
+  connection: network_cli
+  gather_facts: no
+
+  tasks:
+    - name: give name
+      ios_command:
+        commands:
+           - show ip interface brief
+      

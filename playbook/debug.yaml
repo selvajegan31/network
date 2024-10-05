@@ -1,0 +1,11 @@
+---
+-
+  hosts: all
+  gather_facts: no
+  
+  tasks:
+    - name: debug1
+      debug:
+        msg: "Router name is hostname"
+      
+

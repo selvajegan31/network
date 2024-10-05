@@ -1,0 +1,13 @@
+---
+-
+  hosts: cisco
+  connection: network_cli
+  gather_facts: no
+
+  
+
+  tasks:
+    - name: configure
+      ios_config:
+        lines:
+          - hostname "{{ hostname.name }}"

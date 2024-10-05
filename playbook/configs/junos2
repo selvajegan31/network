@@ -1,0 +1,5 @@
+set protocols bgp group 1233 type external
+set protocols bgp group 1233 local-as 1
+set protocols bgp group 1233 peer-as 3
+set protocols bgp group 1233 local-address 1.1.1.1
+set protocols bgp group 1233 neighbor 3.3.3.3

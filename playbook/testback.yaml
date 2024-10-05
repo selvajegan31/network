@@ -1,0 +1,32 @@
+---
+-
+  hosts: all
+  
+
+  tasks:
+    - name: executing junos commands
+      junos_command:
+        commands:
+           - "show configuration"
+      register: output
+      when: ansible_network_os == 'junos'
+
+    - name: backup junos config
+      copy:
+        content:  "{{ output.stdout[0] }}"
+        dest: "configs/{{inventory_hostname}}.txt"
+      when: ansible_network_os == 'junos'
+
+    - name: executing ios command
+      ios_command:
+        commands:
+           - "show run"
+      register: output1
+      when: ansible_network_os == 'ios'
+
+    - name: backup ios config
+      copy:
+        content:  "{{ output1.stdout[0] }}"
+        dest: "configs/{{inventory_hostname}}.txt"
+      when: ansible_network_os == 'ios'
+

@@ -1,0 +1,68 @@
+## Last changed: 2024-10-05 02:48:24 UTC
+version 12.1R1.9;
+system {
+    host-name selva;
+    root-authentication {
+        encrypted-password "$1$zPaJMyRw$fsWx.twYiq0MprqfhSqgD0";
+    }
+    name-server {
+        8.8.8.8;
+    }
+    services {
+        ssh {
+            root-login allow;
+        }
+        netconf {
+            ssh;
+        }
+    }
+    syslog {
+        user * {
+            any emergency;
+        }
+        file messages {
+            any notice;
+            authorization info;
+        }
+        file interactive-commands {
+            interactive-commands any;
+        }
+    }
+    ntp {
+        server 1.1.1.12;
+    }
+}
+interfaces {
+    em0 {
+        unit 0 {
+            family inet {
+                address 192.168.138.13/24;
+            }
+        }
+    }
+    em2 {
+        unit 0 {
+            family inet {
+                address 192.168.8.1/32;
+            }
+        }
+    }
+    em3 {
+        unit 0 {
+            family inet {
+                address 192.168.6.1/32;
+            }
+        }
+    }
+}
+protocols {
+    bgp {
+        group 1233 {
+            type external;
+            local-address 1.1.1.1;
+            peer-as 3;
+            local-as 1;
+            neighbor 3.3.3.3;
+        }
+    }
+}

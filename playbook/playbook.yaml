@@ -1,0 +1,24 @@
+---
+-
+  connection: local
+  gather_facts: no
+  hosts: routers
+  name: "Get device information"
+  tasks:
+    -
+      junipernetworks.junos.junos_command:
+        commands:
+          - "show configuration | no-more"
+         # - "show system uptime"
+      name: "Get software and uptime information"
+      register: junos_result
+    -
+      debug:
+        var: junos_result
+      name: "Print response"
+
+    -
+      name: "backup interface"
+      copy:
+        content: "{{junos_result.stdout[0]}}"
+        dest: "{{inventory_hostname}}.txt"

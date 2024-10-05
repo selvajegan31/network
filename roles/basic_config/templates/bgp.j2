@@ -1,0 +1,5 @@
+{% for bgp1 in bgpconf %}
+router bgp {{bgp1.as_number}}
+neighbor {{bgp1.address}} remote-as {{bgp1.as_number1}}
+network {{bgp1.address1}} mask 255.255.255.255
+{% endfor %}

@@ -1,0 +1,12 @@
+---
+# tasks file for basic_config
+
+- name: temp
+  template:
+     src:  "templates/interface.j2"
+     dest:  "{{inventory_hostname}}"
+
+- name: temp
+  ios_config:
+     src:  "{{inventory_hostname}}"
+     save_when: modified

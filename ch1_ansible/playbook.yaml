@@ -1,0 +1,9 @@
+---
+-
+  hosts: all
+  gather_facts: no
+
+  tasks:
+    - name: displa
+      debug:
+        msg: "Router name is {{ hostname }}"

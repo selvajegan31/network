@@ -1,0 +1,24 @@
+---
+-
+  hosts: all
+  
+  gather_facts: no
+
+  tasks: 
+
+    - name: executing cisco
+      ios_config:
+        lines:
+         - hostname "{{hostname}}"
+      when: ansible_connection == 'network_cli'
+      tags:
+         - cisco
+
+    - name: executing cisco
+      junos_config:
+        lines:
+         - set system host-name "{{hostname}}"
+      when: ansible_connection == 'netconf'
+      tags:
+         - junos
+

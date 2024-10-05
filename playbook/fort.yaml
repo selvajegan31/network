@@ -1,0 +1,25 @@
+---
+-
+  hosts: fort_device
+  gather_facts: no
+  become: no
+
+  collections:
+   - fortinet.fortios
+
+  vars:
+   vdom: "root"
+   fortios_access_token: "1qzdm0bj6yr40rrHfk7dppgz00Gb7x"
+   ansible_httpapi_use_ssl: true
+   ansible_httpapi_validate_certs: false
+   ansible_httpapi_port: 443
+
+  tasks:
+   - name: Configure firewall policy using SSH
+     fortios_system_global:
+       vdom: "{{ vdom }}"
+       access_token: "{{ fortios_access_token }}"
+       system_global:
+         hostname: “FortiGate_Lab”
+
+

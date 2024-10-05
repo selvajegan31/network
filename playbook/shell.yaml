@@ -1,0 +1,18 @@
+---
+-
+  hosts: localhost
+  connection: local
+  gather_facts: no
+  
+
+  tasks:
+    - name: execute shel
+    
+      ansible.builtin.uri:
+        url: "https://www.example.com"
+        return_content: yes
+      register: webpage
+
+    - name: Display the website content
+      debug:
+        msg: "{{ webpage.content }}"

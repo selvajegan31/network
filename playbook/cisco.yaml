@@ -1,0 +1,32 @@
+---
+-
+  hosts: cisco_device
+  connection: network_cli
+  gather_facts: no
+
+  vars:
+    ansible_become: yes
+    ansible_become_method: enable  # Specify privilege escalation method
+    ansible_become_user: cisco
+    ansible_become_pass: cisco
+  
+  tasks:
+    - name: cis
+      ios_command:
+        commands:
+          - show version
+      register: output
+
+    - name: debug
+      debug:
+        var: output
+
+    - name: cis
+      ios_config:
+        commands:
+          - hostname selva
+      register: output1
+
+    - name: debug
+      debug:
+        var: output1

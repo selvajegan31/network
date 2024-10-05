@@ -1,0 +1,11 @@
+---
+
+ansible_host: 192.168.138.13
+
+bgpconf:
+    - grp: 12345
+      local: 1
+      remote: 5
+      address: 1.1.1.1
+      neighbor: 5.5.5.5
+

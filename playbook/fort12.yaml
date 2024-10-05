@@ -1,0 +1,13 @@
+---
+- hosts: fort_device
+  gather_facts: no
+  tasks:
+    - name: Get system global settings
+      fortinet.fortios.fortios_system_global:
+        vdom: "root"
+        state: "present"
+      register: result
+
+    - name: Display the result
+      debug:
+        var: result

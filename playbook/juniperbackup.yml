@@ -1,0 +1,33 @@
+---
+-
+  connection: netconf
+  hosts: juniper_device
+  gather_facts: no
+
+  vars:
+    ip: "192.168.20.1/24"
+  tasks:
+     - name: play1
+       junos_command:
+         commands: show version
+       register: output
+       
+
+     - name: debug
+       debug:
+         var: output
+       when: ansible_network_os == 'junos'
+
+     - name: Save the backup configuration to a file
+       copy:
+         content: "{{ output.stdout[0] }}.txt"
+         dest: "/etc/ansible/playbook/backup.txt"
+       when: ansible_network_os == 'junos'
+
+
+     - name: play2
+       junos_config:
+         commands: 
+           - set system host-name "mimi"
+           - set interfaces em6 unit 0 family inet address {{ ip }}
+       register: output

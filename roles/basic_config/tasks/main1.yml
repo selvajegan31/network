@@ -1,0 +1,18 @@
+---
+# tasks file for basic_config
+
+- name: Create Configs Directory
+  file:
+    path: "{{ config_dir }}"
+    state: directory
+  run_once: yes
+
+- name: Generate Cisco Basic Config
+  template:
+    src:  "templates/ios.j2"
+    dest: "{{config_dir}}/{{inventory_hostname}}.cfg"
+
+- name: load Cisco Basic Config
+  ios_config:
+    src:  "{{config_dir}}/{{inventory_hostname}}.cfg"
+    save_when: modified

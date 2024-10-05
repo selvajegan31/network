@@ -1,0 +1,13 @@
+---
+- name: Check interface status on Junos device
+  hosts: juniper_device
+  gather_facts: no
+  tasks:
+    - name: Get interface status
+      junos_command:
+        commands: show interfaces terse
+      register: interface_status
+
+    - name: Show interface status
+      debug:
+        var: interface_status.stdout

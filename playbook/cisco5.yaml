@@ -1,0 +1,11 @@
+---
+-
+  hosts: all
+  connection: network_cli
+
+  tasks:
+    - name: tas
+      debug:
+        msg: "{{inventory_hostname}}"
+      when: ansible_network_os == 'junos' and ansible_network_os == 'ios'
+     

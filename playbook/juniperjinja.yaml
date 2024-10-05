@@ -1,0 +1,32 @@
+---
+-
+  hosts: juniper
+  connection: netconf
+  gather_facts: no
+
+
+  tasks:
+    - name:  tas
+      junos_command:
+        commands:
+          - show version
+      register: output
+ 
+    - name:  deb
+      debug:
+        var: output
+
+    - name: Create Configs Directory
+      file: path=configs state=directory
+    
+    - name: Generate Cisco Basic Config
+      template:
+        src:  "templates/junos_bgp.j2"
+        dest: "configs/{{inventory_hostname}}.cfg"
+      delegate_to: localhost
+
+    - name: load Cisco Basic Config
+      junos_config:
+        src:  "configs/{{inventory_hostname}}.cfg"
+        confirm_commit: true     
+        update: merge

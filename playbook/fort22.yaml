@@ -1,0 +1,12 @@
+- name: Get FortiGate system info
+  hosts: fort_device
+  connection: ssh
+  gather_facts: no
+
+  collections:
+    - fortinet.fortios
+
+  tasks:
+    - name: Get system information
+      fortios_system_facts:
+        vdom: "root"

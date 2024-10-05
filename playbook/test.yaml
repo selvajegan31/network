@@ -1,0 +1,16 @@
+---
+-
+
+  connection: ansible.netcommon.netconf
+  hosts: routers
+  gather_facts: no
+
+
+  tasks:
+    - name: test1
+      junos_command:
+         commands:
+             - show version
+      register: var12
+  
+

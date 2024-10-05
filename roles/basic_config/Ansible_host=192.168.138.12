@@ -1,0 +1,9 @@
+interface GigabitEthernet0/8
+ description common8
+ ip address 192.168.100.1 255.255.255.0
+ no shut
+interface GigabitEthernet0/9
+ description common9
+ ip address 192.168.200.1 255.255.255.0
+ no shut
+  
