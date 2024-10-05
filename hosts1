@@ -1,7 +1,0 @@
-[cisco_devices]
-192.168.138.10
-
-# BEGIN ANSIBLE MANAGED BLOCK
-hostname CISCO123
-create: yes
-# END ANSIBLE MANAGED BLOCK

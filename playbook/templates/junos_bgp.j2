@@ -1,7 +1,0 @@
-{% for bgp1 in bgpconf %}
-set protocols bgp group {{ bgp1.grp }} type external
-set protocols bgp group {{ bgp1.grp }} local-as {{ bgp1.local }}
-set protocols bgp group {{ bgp1.grp }} peer-as {{ bgp1.remote }}
-set protocols bgp group {{ bgp1.grp }} local-address {{ bgp1.address }}
-set protocols bgp group {{ bgp1.grp }} neighbor {{ bgp1.neighbor }}
-{% endfor %}

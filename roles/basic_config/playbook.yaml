@@ -1,6 +1,0 @@
----
-  - name: Build Basic Config Using Roles
-    hosts: cisco
-    connection: local
-    roles:
-      - basic_config
